@@ -1,0 +1,252 @@
+/* ************************************************ 
+ * ------------------------------------------------
+ *  お問合せ画面 CSS
+ * ------------------------------------------------
+ * ************************************************ */
+
+
+/* ------------------------------------- 
+ *  共通
+ * ------------------------------------- */
+
+* {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  font-size: <{$font_size}>;
+}
+
+body {
+  padding-top: 3px;
+  color: <{$font_color}>;
+  font-family: "Verdana", "ヒラギノ角ゴ Pro W3", "ＭＳ ゴシック", "Osaka‐等幅";
+  line-height: 150%;
+  background-color: <{$page_bgcolor}>;
+  margin-left: 20px;
+}
+
+/* ------------------------------------- 
+ *  リンクの文字/通常時(link,visited,active)
+ *  リンクの文字/マウスが当たっている時(hover)
+ * ------------------------------------- */
+a:link {
+  color: <{$link_normal}>;;
+}
+
+a:visited {
+  color: <{$link_normal}>;
+}
+
+a:active {
+  color: <{$link_normal}>;
+}
+
+a:hover {
+  color: <{$link_hover}>;
+}
+
+/* ------------------------------------- 
+ *  入力項目
+ * ------------------------------------- */
+
+input, select, textarea {
+  border-right: solid #CCC 1px;
+  border-top: solid #CCC 1px;
+  border-left: solid #CCC 1px;
+  border-bottom: solid #CCC 1px;
+}
+
+.base01 {
+  width: 700px !important;
+  margin: 0px auto !important;
+  padding: 0px !important;
+  text-align: left !important;
+}
+
+.base02 {
+  width: 700px !important;
+  margin: 0px !important;
+  padding: 20px 0px 0px 0px !important;
+  text-align: left !important;
+}
+
+.sub {
+  width: 700px !important;
+  margin: 0px !important;
+  padding: 10px 0px !important;
+  background:<{$table_border_color}>;
+}
+
+/* ------------------------------------- 
+ *  テーブルの背景色と文字色
+ * ------------------------------------- */
+
+.table1 {
+  border: 1px solid <{$title_bgcolor}>;
+  font-size: 11px;
+  align:center;
+  margin:0px auto;
+}
+
+.CELL_1_L {
+  background: <{$table_title_bgcolor}>;
+  border: 1px solid #CCC;
+  padding: 4px 2px 4px 10px;
+  font-weight: bolder;
+  text-align:left;
+}
+
+.CELL_1_C {
+  background: <{$table_title_bgcolor}>;
+  border: 1px solid #CCC;
+  padding: 4px 2px 4px 2px;
+  font-weight: bolder;
+  text-align:center;
+}
+
+.CELL_1_R {
+  background: <{$table_title_bgcolor}>;
+  border: 1px solid #CCC;
+  padding: 4px 10px 4px 2px;
+  font-weight: bolder;
+  text-align:right;
+}
+
+.CELL_2 {
+  background:<{$table_border_color}>;
+  border: 1px solid #EEE;
+  padding: 4px 2px;
+}
+
+.prod_total, .all_total {
+  font-weight: bolder;
+  display: block;
+}
+
+
+.title_area {
+  padding: 0px !important;
+  text-align: center !important;
+}
+
+.title_area img {
+  width: 168px;
+}
+
+.shop_title {
+  font-size: <{$title_fontsize}>;
+  font-weight: bolder;
+  line-height:1.2em;
+}
+
+
+
+/* ------------------------------------- 
+ *  ボタン
+ * ------------------------------------- */
+
+.submit_btn {
+  text-align:center !important;
+}
+
+/*決済ページ:カートを空にする&変更*/
+.submit_btn_cart01 {
+}
+
+/*決済ページ:買い物を続ける&レジへ進む*/
+.submit_btn_cart02 {
+}
+
+.submit_btn input {
+  padding: 5px;
+  cursor: pointer;
+}
+
+/* ------------------------------------- 
+ *  コピーライト、セキュア
+ * ------------------------------------- */
+.copyright{
+  width: 700px;
+  text-align:center !important;
+  margin:0px auto !important;
+}
+
+.secure_seal {
+  text-align:center;
+  margin:20px auto !important;
+  width:700px;
+}
+
+.secure_table {
+  margin:20px auto !important;
+  text-align:center;
+}
+
+/* ------------------------------------- 
+ *  注意書き１の文字色
+ * ------------------------------------- */
+.note {
+  font-size: 11px;
+  color: <{$table_cell_bgcolor}>;
+}
+
+/* ------------------------------------- 
+ *  注意書き２の文字色
+ * ------------------------------------- */
+.note2 {
+  font-size: 11px;
+  color: <{$table_cell_bgcolor}>;
+}
+
+/* ------------------------------------- 
+ *  注意書き３の文字色
+ * ------------------------------------- */
+#note3 {
+  font-size: 11px;
+  color: <{$table_cell_bgcolor}>;
+}
+
+/* ------------------------------------- 
+ *  メッセージ表示域の設定
+ * ------------------------------------- */
+.info {
+  border: #3c60c5 1px dotted;
+  padding: 10px;
+  font-size: 11px;
+  margin: 10px auto;
+  width: 90%;
+  color: #3c60c5;
+  background-color: #f8f8ff;
+  text-align: left
+}
+
+/* ------------------------------------- 
+ *  エラー表示域の設定
+ * ------------------------------------- */
+.errorbox {
+  background-color: #00929F;
+  border: 2px solid;
+  border-color: #007782;
+  padding: 4px 2px 4px 5px;
+  margin:10px auto;
+  text-align: left;
+  color:#FFFFFF;
+  font-size:11px;
+}
+
+/* ------------------------------------- 
+ *  手数料の文字色
+ * ------------------------------------- */
+.sub_charge {
+  color: #900990;
+  font-weight: bold;
+}
+
+/* ------------------------------------- 
+ *  使用ポイントの文字色
+ * ------------------------------------- */
+.point_discon {
+  color: 00929F;
+  font-weight: bold;
+}
+

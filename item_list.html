@@ -1,0 +1,134 @@
+<{**
+<!-- パンくずナビ -->
+<a href="./">TOP</a>
+<{if $smarty.get.mode != 'grp'}>
+<{if $bid_name != ""}> &gt; <a href='<{$bid_link}>'><{$bid_name}></a><{/if}><{if $sid_name != ""}> &gt; <a href='<{$sid_link}>'><{$sid_name}></a><{/if}><{if $product_name != ""}> &gt; <a href='<{$product_link}>'><{$product_name}></a><{/if}>
+<{else}>
+<{section name=num loop=$group_breadcrumb}>
+ &gt; <a href="<{$group_breadcrumb[num].link_url}>"><{$group_breadcrumb[num].name}></a>
+<{/section}>
+<{/if}>
+<!--// パンくずナビ -->
+
+
+
+<!-- サブカテゴリーがないときは、表示しない -->
+<{if $subcategory_num != 0}>
+  <strong>｜サブカテゴリー</strong>
+  <br />
+  <{section name=num loop=$sub_category}>
+    <div style="float:left;">
+      <{if $sub_category[num].img_url != "" }>
+        <a href="<{$sub_category[num].link_url}>"><img src="<{$sub_category[num].img_url}>" /></a><br />
+      <{/if}>
+      <a href="<{$sub_category[num].link_url}>"><{$sub_category[num].name}></a>
+    </div>
+    
+    <!-- 3個で改行(最後は含まない) ※4個で改行にする場合は " % 3 "　を " % 4 " に変更してください-->
+    <{if $smarty.section.num.iteration % 3 == 0 and $smarty.section.num.last == false}>
+      <br class="clear" />
+    <{/if}>
+    
+  <{/section}>
+  <br class="clear" />
+  
+<{/if}>
+
+<!-- サブグループがないときは、表示しない -->
+<{if $subgroup_num != 0}>
+  <strong>｜サブカテゴリー</strong>
+  <br />
+  <{section name=num loop=$sub_group}>
+    <div style="float:left;">
+      <{if $sub_group[num].img_url != "" }>
+        <a href="<{$sub_group[num].link_url}>"><img src="<{$sub_group[num].img_url}>" /></a><br />
+      <{/if}>
+      <a href="<{$sub_group[num].link_url}>"><{$sub_group[num].name}></a>
+    </div>
+    
+    <!-- 3個で改行(最後は含まない) ※4個で改行にする場合は " % 3 "　を " % 4 " に変更してください-->
+    <{if $smarty.section.num.iteration % 3 == 0 and $smarty.section.num.last == false}>
+      <br class="clear" />
+    <{/if}>
+    
+  <{/section}>
+  <br class="clear" />
+  
+<{/if}>
+**}>
+
+<!-- 商品があるとき -->
+<{if $productlist_num != 0}>
+<div id="product_list">
+  <h2>
+    <{if $sid_name != ""}>
+            <{$sid_name}>
+          <{elseif $bid_name != ""}>
+            <{$bid_name}>
+          <{/if}>
+  </h2>
+<{**
+  <!-- ソート -->
+  [&nbsp;並び順を変更&nbsp;] - 
+  <{if $productlist_sort_now != ""}><a href="<{$productlist_sort_def}>">おすすめ順</a> - <{else}><span style="font-weight: bolder;">おすすめ順</span> - <{/if}>
+  <{if $productlist_sort_now != "p"}><a href="<{$productlist_sort_price}>">価格順</a> - <{else}><span style="font-weight: bolder;">価格順</span> - <{/if}>
+  <{if $productlist_sort_now != "n"}><a href="<{$productlist_sort_new}>">新着順</a><{else}><span style="font-weight: bolder;">新着順</span><{/if}>
+  <!-- // ソート -->
+  
+  <br />
+
+  <!-- 商品数・ページ送り -->
+  <{if $productlist_prev_page != ""}><a href="<{$productlist_prev_page}>">前のページへ</a>&nbsp;&nbsp;&nbsp;<{/if}>
+  全 [<{$productlist_num}>] 商品中 [<{$productlist_snum}>-<{$productlist_enum}>] 商品を表示しています
+  <{if $productlist_next_page != ""}>&nbsp;&nbsp;&nbsp;<a href="<{$productlist_next_page}>">次のページへ</a><{/if}>
+  <!-- // 商品数・ページ送り -->
+  
+  <br />
+  <br />
+**}>
+
+<div id="product_li_pager">
+  <{if $productlist_prev_page != ""}><a href="<{$productlist_prev_page}>">前のページへ</a>&nbsp;&nbsp;&nbsp;<{/if}>
+  <{if $productlist_next_page != ""}>&nbsp;&nbsp;&nbsp;<a href="<{$productlist_next_page}>">次のページへ</a><{/if}>
+</div>
+  <!-- 商品一覧 -->
+        <ul>
+  <{section name=num loop=$productlist}>
+    <li <{if $smarty.section.num.iteration % 4 == 0}>style="margin-right:0;"<{/if}>>
+      <{if $productlist[num].img_url != ""}>
+        <a href="<{$productlist[num].link_url}>"><img src="<{$productlist[num].large_img_url}>" /></a>
+      <{else}>
+        <a href="<{$productlist[num].link_url}>"><img src="http://img.shop-pro.jp/tmpl_img/21/now100.gif" /></a>
+      <{/if}>
+      <{**
+      <a href="<{$productlist[num].link_url}>"><{$productlist[num].name}></a>
+      <br />
+      <{if $members_login_flg == true && $productlist[num].discount_flg == true}>
+        <!-- 通常販売価格 -->
+        <s><{$productlist[num].regular_price}></s><br />
+      <{/if}>
+        <!-- 販売価格 -->
+        <{$productlist[num].price}><br />
+      <{if $members_login_flg == true && $productlist[num].discount_flg == true}>
+        <!-- 割引率 -->
+        <{$productlist[num].discount_rate}>OFF!!
+      <{/if}>
+      <{if $productlist[num].soldout_flg == true}>SOLD OUT<{/if}>
+      <{if $productlist[num].s_expl <> ""}><br /><{$productlist[num].s_expl}><{/if}>
+                        **}>
+    </li>
+  <{/section}>
+  </ul>
+  <!-- 商品一覧 -->
+</div>
+<script type="text/javascript">
+  $(function () {
+    var thumb_height = $('#product_list > ul > li > a > img').height();
+    $('#product_list > ul > li').css('height', thumb_height+'px');
+  });
+</script>
+
+<{else}>
+  <!-- 該当商品がないとき -->
+  <{if $subcategory_num == 0}>該当する商品がありません<{/if}>
+<{/if}>

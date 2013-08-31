@@ -1,0 +1,20 @@
+#sct_contents h2 {
+  font-size: 18px;
+  font-weight: normal;
+  margin-bottom: 1em;
+}
+#sct_contents table {
+  width: 645px;
+  margin-bottom: 3em;
+}
+#sct_contents th {
+  width: 200px;
+  padding: 1em 0;
+  border-bottom: 1px dotted #efefef;
+}
+#sct_contents td {
+  width: 445px;
+  padding: 1em 0;
+  border-bottom: 1px dotted #efefef;
+}
+

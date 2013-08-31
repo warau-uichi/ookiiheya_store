@@ -1,0 +1,79 @@
+<!-- ページタイトル -->
+<strong>｜検索結果</strong>
+
+<br />
+&nbsp;&nbsp;ヒット件数：<strong><{$productlist_num}></strong>件
+<br />
+検索条件　[カテゴリー]：<{if $search_category!=""}><strong><{$search_category}></strong><{/if}>
+&nbsp;&nbsp;[検索文字]：<{if $search_keyword!=""}><strong><{$search_keyword}></strong><{/if}>
+<br />
+<br />
+
+<{if $productlist_num != 0}>
+<!-- 該当商品があるとき -->
+
+
+  <!-- ソート -->
+  [&nbsp;並び順を変更&nbsp;] - 
+  <{if $productlist_sort_now != ""}><a href="<{$productlist_sort_def}>">おすすめ順</a> - <{else}><span style="font-weight: bolder;">おすすめ順</span> - <{/if}>
+  <{if $productlist_sort_now != "p"}><a href="<{$productlist_sort_price}>">価格順</a> - <{else}><span style="font-weight: bolder;">価格順</span> - <{/if}>
+  <{if $productlist_sort_now != "n"}><a href="<{$productlist_sort_new}>">新着順</a><{else}><span style="font-weight: bolder;">新着順</span><{/if}>
+  <!-- // ソート -->
+  
+  <br />
+  
+  <!-- 商品数・ページ送り -->
+  <{if $productlist_prev_page != ""}><a href="<{$productlist_prev_page}>">前のページへ</a>&nbsp;&nbsp;&nbsp;<{/if}>
+  全 [<{$productlist_num}>] 商品中 [<{$productlist_snum}>-<{$productlist_enum}>] 商品を表示しています
+  <{if $productlist_next_page != ""}>&nbsp;&nbsp;&nbsp;<a href="<{$productlist_next_page}>">次のページへ</a><{/if}>
+  <!-- // 商品数・ページ送り -->
+  
+  <br />
+  <br />
+  
+  <!-- 商品一覧 -->
+  <{section name=num loop=$productlist}>
+    <div style="float:left;">
+      <{if $productlist[num].img_url != ""}>
+        <a href="<{$productlist[num].link_url}>"><img src="<{$productlist[num].img_url}>" /></a><br />
+      <{else}>
+        <a href="<{$productlist[num].link_url}>"><img src="http://img.shop-pro.jp/tmpl_img/21/now100.gif" /></a><br />
+      <{/if}>
+      
+      <a href="<{$productlist[num].link_url}>"><{$productlist[num].name}></a>
+      <br />
+      <{if $members_login_flg == true && $productlist[num].discount_flg == true}>
+        <!-- 通常販売価格 -->
+        <s><{$productlist[num].regular_price}></s><br />
+      <{/if}>
+        <!-- 販売価格 -->
+        <{$productlist[num].price}><br />
+      <{if $members_login_flg == true && $productlist[num].discount_flg == true}>
+        <!-- 割引率 -->
+        <{$productlist[num].discount_rate}>OFF!!
+      <{/if}>
+      <{if $productlist[num].soldout_flg == true}>SOLD OUT<{/if}>
+      <{if $productlist[num].s_expl <> ""}><br /><{$productlist[num].s_expl}><{/if}>
+    </div>
+    
+    <!-- 商品を3個で改行(最後は含まない) ※4個で改行にする場合は " % 3 "　を " % 4 " に変更してください-->
+    <{if $smarty.section.num.iteration % 3 == 0 and $smarty.section.num.last == false}><br style="clear:both;" /><{/if}>
+    
+  <{/section}>
+  
+  <!-- 商品一覧 -->
+  
+  <br class="clear" />
+  <br />
+  
+  <!-- 商品数・ページ送り -->
+  <{if $productlist_prev_page != ""}><a href="<{$productlist_prev_page}>">前のページへ</a>&nbsp;&nbsp;&nbsp;<{/if}>
+  全 [<{$productlist_num}>] 商品中 [<{$productlist_snum}>-<{$productlist_enum}>] 商品を表示しています
+  <{if $productlist_next_page != ""}>&nbsp;&nbsp;&nbsp;<a href="<{$productlist_next_page}>">次のページへ</a><{/if}>
+  <!-- // 商品数・ページ送り -->
+
+
+<{else}>
+  <!-- 該当商品がないとき -->
+  <div class="nodata">該当する商品がありません</div>
+<{/if}>

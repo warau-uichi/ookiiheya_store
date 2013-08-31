@@ -1,0 +1,312 @@
+<div id="container">
+  <!--***** header ショップ名とグローバルメニュー *****-->
+  <div class="header">
+<div id="logo"><h1><a href="<{ $home_url }>"><{ $logo }></a></h1></div>
+<{**
+<ul id="header_menu">
+    <li><a href="<{$home_url}>">home</a></li>
+　　　　　　　　<li><a href="<{$view_myaccount_url}>">myAccount</a></li>
+　　　　　　　　<li><a href="<{$view_inq_url}>">contact</a></li>
+　　　　　　　　<li><a href="<{$sk_url}>#payment">shopping guide</a></li>
+　　　　　　　　<li><a href="<{$sk_url}>#payment">お支払い方法について</a></li>
+　　　　　　　　<li><a href="<{$sk_url}>#delivery">配送方法・送料について</a></li>
+</ul>
+                <div id="cart_button"><a href="<{$view_cart_url}>">カートの中を見る</a></div>
+**}>
+        </div>
+  <!--*****// header ショップ名とグローバルメニュー *****-->
+  
+
+  <!--***** 左サイドメニュー *****-->
+  <div class="side">
+<{**  
+    <{ if $members_use_flg == true}>
+      <!-- 会員専用ページ-->
+      <strong>｜会員専用ページ</strong>
+      <br />  
+      <{if $members_login_flg != true}>
+        <a href="<{$members_login_url}>">ログイン</a><br />
+        <{if $members_register_flg == true}>
+          はじめてのお客様へ<br />
+          <a href="<{$members_regi_url}>">新規会員登録はこちら</a><br />
+        <{/if}>
+        <br />
+      <{else}>
+        ようこそ、&nbsp;<{$members_login_name}>&nbsp;様<br />
+        <a href="<{$members_login_url}>">ログアウト</a><br />
+        <br />
+      <{/if}>
+    <{/if}>
+  
+    <!-- 商品検索-->
+    <strong>｜商品検索</strong>
+    <br />
+    <form action="<{$product_search_url}>" method="GET" id="search">
+      <{$product_search_mode}>
+      <select name="cid" style="width:180px;">
+      <option value="">全ての商品から</option>
+        <{section name=num loop=$category}>
+        <option value="<{$category[num].id}>"><{$category[num].name}></option>
+        <{/section}>
+      </select>
+      <input type="text" name="keyword" style="margin:5px 5px 0px 0px;width:100px;"><input type="submit" value="検索" />
+    </form>
+    <!--// 商品検索-->
+**}>  
+    
+    <!-- 商品カテゴリー-->
+    <!-- ※カテゴリー画像が登録されている場合は画像のみ表示します -->
+    <p><strong>products</strong></p>
+                <ul id="categories">
+      <{section name=num loop=$category}>
+        <{if $category[num].img_url != ""}>
+        <li><a href="<{$category[num].link_url}>"><img src="<{$category[num].img_url}>" /></a></li>
+        <{else}>
+        <li><a href="<{$category[num].link_url}>"><{$category[num].name}></a></li>
+        <{/if}>
+      <{/section}>
+                </ul>
+    <!-- 商品グループ -->
+    <{section name=num loop=$group}>
+    <{if $smarty.section.num.first }><div id="group-list"><{/if}>
+    <ul class="group-list-link">
+    <{if $group[num].img_url != ""}>
+    <li><a href="<{$group[num].link_url}>"><img src="<{$group[num].img_url}>" /></a></li>
+    <{else}>
+    <li><a href="<{$group[num].link_url}>"><{$group[num].name}></a></li>
+    <{/if}>
+    </ul>
+    <{if $smarty.section.num.last }></div><{/if}>
+    <{/section}>
+    <!--// 商品グループ -->
+    <!--// 商品カテゴリー-->
+
+    <p><strong>link</strong></p>
+<ul id="relative_link">
+  <li><a href="http://ookiiheya.com"><img src="http://img20.shop-pro.jp/PA01190/483/etc/ookiiheya_logo.png?20130501104928" alt="大きい部屋" /></a></li>
+  <li><a href="http://ookiiheya.blog52.fc2.com/"><img src="http://img20.shop-pro.jp/PA01190/483/etc/ookiiheyablog_logo.png?20130501104958" alt="大きい部屋ブログ" /></a></li>
+</ul>
+
+    <p><strong>info</strong></p>
+<ul>
+  <li><a href="<{ $sk_url }>"><img src="http://img20.shop-pro.jp/PA01190/483/etc/tokuteishotorihiki.png?20130501105828" alt="特定商取引" /></a></li>
+</ul>
+
+<{**
+    <!-- カートを見る-->
+    <br />
+    <br />
+    <strong>｜カート</strong>
+    <br />
+    <{if $incart != ""}>
+      <div class="subtotal">
+        <{section name=num loop=$incart}>
+          <p class="incart_name"><a href="<{$incart[num].link_url}>"><{$incart[num].name}></a>×<{$incart[num].product_num}></p>
+          <p class="stotal"><{$incart[num].price}>円</p>
+        <{/section}>
+      </div>
+      <p class="total"><b>商品合計&nbsp;<{$incart_total_price}>円</b></p>
+      <{if $incart_delivery}>
+        <ul class="postage">
+          <{section name=num loop=$incart_delivery}>
+          <li><span style="color:#333;"><{$incart_delivery[num].delivery_name}></span><br />
+          <{if $incart_delivery[num].balance > 0}>
+          あと<b><{$incart_delivery[num].balance}>円</b>で<b>送料無料！</b></li>
+          <{else}>
+          送料無料です！
+          <{/if}>
+          <{/section}>
+        </ul>
+      <{/if}>
+    <{/if}>
+    <!--// カートを見る-->
+    
+    
+    <!-- おすすめ商品-->
+    <{if $recommend_num != 0}>
+      <br />
+      <br />
+      <strong>｜おすすめ商品</strong>
+        <{section name=num loop=$recommend}>
+        <br />
+        <a href="<{$recommend[num].link_url}>"><{$recommend[num].name}></a>
+        <{/section}>
+    <{/if}>
+    <!--// おすすめ商品-->
+    
+    
+    
+    <!-- 売れ筋商品-->
+    <{if $seller_num != 0}>
+      <br />
+      <br />
+      <strong>｜売れ筋商品</strong>
+        <{section name=num loop=$seller}>
+        <br />
+        <a href="<{$seller[num].link_url}>"><{$seller[num].name}></a>
+        <{/section}>
+    <{/if}>
+    <!--// 売れ筋商品-->
+    
+    
+    
+    <!-- 最新トラックバックエリア -->
+    <{if $recent_trackback_num != 0 }>
+      <br />
+      <br />
+      <strong>｜トラックバック</strong>
+      <{section name=num loop=$recent_trackback}>
+        <br />
+        ・ <{$recent_trackback[num].name}><br />⇒ <a href="<{$recent_trackback[num].link_url}>"><{$recent_trackback[num].blog_name}></a>
+        <br />
+        （<{$recent_trackback[num].date}>）
+      <{/section}>
+    <{/if}>
+    <!--// 最新トラックバックエリア -->
+    
+    
+    
+    <!--フリーページ -->
+    <!-- * ないときは表示しない -->
+    <{if $free_area_flg == true}>
+      <br />
+      <br />
+      <strong>｜フリーページ</strong>
+      <{section name=num loop=$freepage}>
+      <br /><a href="<{$freepage[num].link_url}>"><{$freepage[num].page_title}></a>
+      <{/section}>
+    <{/if}>
+    <!--// フリーページ -->
+    
+    
+    
+    <!-- 店長-->
+    <{if $manager_name != "" && $manager_memo != ""}>
+      <br />
+      <br />
+      <strong>｜店長のコーナー</strong>
+      <{if $manager_img != ""}><br /><img src="<{$manager_img}>" class="owner_photo" /><{/if}>
+      <br /><{$manager_name}>
+      <br /><{$manager_memo}>
+      <{if $manager_url != ""}><br /><a href="<{$manager_url}>">Blog</a><{/if}>
+    <{/if}>
+    <!--// 店長-->
+    
+    
+    
+    <!-- メルマガ登録・解除 -->
+    <!-- * ないときは表示しない -->
+    <{if $mailmaga_url != "" }>
+      <br />
+      <br />
+      <strong>｜メールマガジン</strong>
+      <br /><a href="<{$mailmaga_url}>">メルマガ登録・解除はこちら</a>
+    <{/if}>
+    <!-- //メルマガ登録・解除 -->
+
+
+    <!-- RSS -->
+    <br />
+    <br />
+    <a href="<{$rss_url}>">RSS</a>
+        <br />
+    <a href="<{$atom_url}>">ATOM</a>
+    <!--// RSS -->
+
+**}>    
+  </div>
+  <!--*****// 左サイドメニュー *****-->
+
+<!--***** ヘッダナビ部分 *****-->
+<div id="main_navi">
+  <ul>
+    <li><a href="<{ $home_url }>"><img src="http://img20.shop-pro.jp/PA01190/483/etc/home_ico.png?20130501011141" alt="ホーム" /></a></li>
+    <li><a href="<{ $view_inq_url }>"><img src="http://img20.shop-pro.jp/PA01190/483/etc/mail_ico.png?20130505100631" alt="お問い合わせ" /></a></li>
+    <{** <li><img src="http://img20.shop-pro.jp/PA01190/483/etc/mail_ico.png?20130501011443" alt="mail" /></li> **}>
+    <li><a href="<{ $view_cart_url }>"><img src="http://img20.shop-pro.jp/PA01190/483/etc/shoppingbuck_ico.png?20130501011547" alt="カートを見る" /></a></li>
+    <{ if ($members_login_flg === true) }>
+    <li><a href="<{ $view_myaccount_url }>"><img src="http://img20.shop-pro.jp/PA01190/483/etc/account_ico_l.png?20130505094636" alt="会員ページ" style="width:31px;" /></a></li>
+    <{ else }>
+    <li><a href="<{ $members_login_url }>"><img src="http://img20.shop-pro.jp/PA01190/483/etc/login_ico.png?20130505132617" alt="ログイン" style="margin-bottom:-4px;" /></a></li>
+    <{ /if }>
+  </ul>
+</div>
+<!--*****// ヘッダナビ部分 *****-->
+
+  <!--***** 右メイン部分 *****-->
+  <{* ***************************************************************************
+  ※--｛include file = $file_name｝の部分に「トップ」「商品一覧」「商品詳細」
+  ※--「特定商取引」「商品検索結果」「プライバシーポリシー」
+  ※--の各ページが読み込まれます 
+  *************************************************************************** *}>
+  <div class="main">
+    <{include file = $file_name}>
+<{**
+<!-- 最近チェックした商品 -->
+<strong>｜最近チェックした商品</strong><br />
+<{if $history_num != 0}>
+  <{section name=num loop=$history max=10}>
+    <div style="float:left;">
+        <{if $history[num].img_url != ""}>
+          <a href="<{$history[num].link_url}>"><img src="<{$history[num].img_url}>" alt="" /></a><br />
+        <{else}>
+          <a href="<{$history[num].link_url}>"><img src="http://img.shop-pro.jp/tmpl_img/21/now100.gif" alt="" /></a><br />
+        <{/if}>
+        <a href="<{$history[num].link_url}>"><{$history[num].name}></a><br />
+          <{if $members_login_flg == true && $history[num].discount_flg == true}>
+          <!-- 通常販売価格 -->
+          <{$history[num].regular_price}><br />
+          <{/if}>
+          <!-- 販売価格 -->
+          <{$history[num].price}><br />
+          <{if $members_login_flg == true && $history[num].discount_flg == true}>
+          <!-- 割引率 -->
+          <{$history[num].discount_rate}>OFF!!<br />
+          <{/if}><br />
+          <{if $history[num].soldout_flg == true}>SOLD OUT<{/if}>
+    </div>
+    <!-- 2個で改行(最後は含まない) -->
+    <{if $smarty.section.num.iteration % 2 == 0 and $smarty.section.num.last == false}>
+      <br style="clear:both;" />
+    <{/if}>
+  <{/section}>
+
+<br style="clear:both;" />
+<{/if}>
+
+<!-- 最近チェックした商品 -->
+**}>
+
+  </div>
+  <!--*****// 右メイン部分 *****-->
+  
+  
+  <!--***** footer コピーライト *****-->
+  <div class="footer">
+  <{ $e_copyright }>
+  </div>
+  <!--*****// footer コピーライト *****-->
+  
+</div>
+<script type="text/javascript">
+$(function(){
+  var main_navi = $('#main_navi');
+  var offset = main_navi.offset();
+  $(window).scroll(function() {
+    if ($(window).scrollTop() > offset.top) {
+      main_navi.css('left', offset.left);
+      main_navi.addClass('fixed');
+    } else {
+      main_navi.removeClass('fixed');
+    }
+  });
+  $('#main_navi img').on({
+    'mouseenter':function(){
+        $(this).css('opacity', 1);
+    },
+    'mouseleave':function(){
+    $(this).css('opacity', 0.8);
+    }
+  });
+});
+</script>

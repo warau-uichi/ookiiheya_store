@@ -1,0 +1,47 @@
+#eyecatch {
+  width: 645px;
+  text-align: center;
+  display: table;
+  vertical-align: middle;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 3em;
+}
+#ec_main {
+  width: 590px;
+  height: 390px;
+  overflow: hidden;
+  float: left;
+}
+#ec_main img {
+  max-width: 590px; 
+}
+#ec_list {
+  float: left;
+  padding: 0 5px 5px;
+}
+#ec_list li {
+  opacity: 0.4;
+}
+#ec_list img {
+  width: 45px;
+  cursor: pointer;
+}
+.main strong {
+  font-size: 18px;
+  display: block;
+  border-bottom: 1px solid #000;
+  font-weight: bold;
+  margin-bottom: 1em;
+  padding-bottom: 0.5em;
+  font-weight: normal;
+}
+#recommend_items li {
+  float: left;
+  margin-right: 1em;
+  margin-bottom: 1em;
+  display: block;
+}
+#recommend_items img {
+  width: 150px;
+}

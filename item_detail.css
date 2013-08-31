@@ -1,0 +1,32 @@
+#product_main_img {
+  float: left;
+  width: 412px;
+  margin-right: 30px;
+  position: relative;
+}
+#product_txt {
+  float: left;
+  width: 200px;
+}
+#product_name {
+  font-size: 18px;
+  font-weight: normal;
+  margin-bottom: 1em;
+}
+#product_price, #product_explain {
+  margin-bottom: 1em;
+}
+#product_thumb_li {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #FFF;
+  border: 5px solid #FFF;
+}
+#product_thumb_li li {
+  opacity: 0.4;
+}
+#product_thumb_li img {
+  cursor: pointer;
+  width: 30px;
+}

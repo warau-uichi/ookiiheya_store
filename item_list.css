@@ -1,0 +1,16 @@
+#product_list h2 {
+  font-size: 18px;
+  font-weight: normal;
+  margin-bottom: 0.5em;
+}
+#product_li_pager {
+  margin-bottom: 0.5em;
+}
+#product_list > ul > li {
+  float: left;
+  margin: 0 1em 1em 0;
+  display: block;
+}
+#product_list > ul > li > a > img {
+  width: 150px;
+}

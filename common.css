@@ -1,0 +1,213 @@
+/* ************************************************ 
+ *  共通設定
+ * ************************************************ */
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  color: #000000;
+  font-size: 12px;
+  font-family: 'Muli',"Verdana", "ヒラギノ角ゴ Pro W3", "ＭＳ ゴシック", "Osaka‐等幅";
+  line-height: 1.6em;
+  background-color: #ffffff;
+  text-align:center;
+}
+
+br.clear {
+  clear: both;
+  font: 0pt/0pt sans-serif;
+}
+
+img {
+  border: 0px;
+}
+
+li {
+  list-style: none;
+}
+
+/* ------------------------------------- 
+ *  ページレイアウト
+ * ------------------------------------- 
+ *※ページ全体の幅は800pxとなっています。
+    幅を広げる場合は、.sideと.mainのwidth
+    の合計値が#containerのwidthになるよう
+    設定してください。
+ * ------------------------------------- */
+
+/*ページ全体の幅、レイアウトをセンタリング*/
+#container {
+  margin:0px auto;
+  width:900px;
+  text-align:left;
+}
+
+/*ヘッダー（ページタイトル、グローバルメニュー）*/
+.header {
+ width:100%;
+ position: relative;
+ margin-bottom: 25px;
+}
+
+#logo {
+  padding-top: 3px;
+  text-align: center;
+}
+
+#logo img {
+  width: 168px;
+}
+
+/* メインナビゲーション */
+#main_navi {
+  float: left;
+  width: 617px;
+  margin-bottom: 20px;
+  background-color: #FFF;
+  opacity: 0.9;
+  padding: 1em 14px;
+}
+
+#main_navi li {
+  display: inline;
+  margin-right: 39px;
+}
+
+#main_navi img {
+  opacity: 0.8;
+}
+
+/*　画面左側メニューの幅　*/
+.side {
+  float: left;
+  width:200px;
+        margin-right: 50px;
+}
+
+.side strong {
+  font-size: 18px;
+  border-bottom: 1px solid #000;
+  display: block;
+  margin-bottom: 1em;
+  padding-bottom: 0.5em;
+  font-weight: normal;
+}
+
+.side ul {
+  margin-bottom: 3em;
+}
+
+.side #categories {
+  font-size: 14px;
+  padding: 0 3px;
+}
+
+.side #categories li {
+  /*list-style: square url('http://img20.shop-pro.jp/PA01190/483/etc/wh_square.png?20130501100408') inside;*/
+  line-height: 2;
+}
+
+.side #categories a {
+  text-decoration: none;
+  color: #000;
+}
+
+.side #categories a:hover {
+  color: #999;
+}
+
+#relative_link li {
+  margin-bottom: 1em;
+}
+
+#relative_link img {
+  width: 150px;
+}
+
+.subtotal {
+  padding:5px 0;
+}
+.stotal {
+  text-align:right;
+}
+.total {
+  padding:5px 0;
+  border-top:1px solid #C3C3C3;
+  text-align:right;
+}
+
+.postage {
+  border-top:1px dotted #C3C3C3;
+  border-bottom:1px dotted #C3C3C3;
+  list-style-type:none;
+  margin-bottom:5px;
+}
+
+.postage li {
+  margin:5px 0;
+  color:red;
+  text-align:left;
+}
+
+.viewcart {
+  padding:5px 0;
+  text-align:center;
+}
+
+/*　画面右側の幅　*/
+.main {
+  float: left;
+  width: 645px;
+}
+
+/* 特定商取引法に基づく表記（返品など）ボタン */
+p#sk_link_other {
+  text-align:left;
+  margin-top:10px;
+}
+
+p#sk_link_other a {
+  font-size:12px;
+}
+
+/*　フッター（コピーライト）　*/
+.footer {
+ width:100%;
+ clear:both;
+ text-align: right;
+ margin-top: 50px;
+ float: left;
+}
+
+#group-list {
+  border-top:#838383 dotted 1px;
+  padding:5px 0px 0px;
+  margin:10px 20px 0px 0px;
+}
+
+/* -------------------------------------
+*     商品オプション 表形式
+* ------------------------------------- */
+#option_tbl {
+     border-collapse:collapse;
+     border-top:1px solid #ccc;
+     border-left:1px solid #ccc;
+}
+#option_tbl th{
+     border-bottom:1px solid #ccc;
+     border-right:1px solid #ccc;
+}
+#option_tbl td {
+     border-bottom:1px solid #ccc;
+     border-right:1px solid #ccc;
+}
+
+.fixed {
+ top: 0;
+ left: 250px;
+ position: fixed;
+ z-index: 99;
+}
+
