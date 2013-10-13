@@ -9,7 +9,7 @@
 
 <!--おすすめ商品が登録されている場合に表示されます-->
 <{if $recommend_num != 0}>
-  <p><strong>new items</strong></p>
+  <p><strong>recommend items</strong></p>
         <ul id="recommend_items">
   <{section name=num loop=$recommend}>
     <li <{if $smarty.section.num.iteration % 4 == 0}>style="margin-right:0;"<{/if}>>
@@ -93,35 +93,23 @@
 <!--//フリースペース-->
 **}>
 
-
 <script type="text/javascript">
 $(function () {
-  var thumb_height = $('#recommend_items img').height();
-  if (thumb_height < 200) {
-    thumb_height = 200;
-  }
-  $('#recommend_items li').css('height', thumb_height+'px');
-
   var ec_li_idx = 0;
-  var ec_li_max = $('#ec_list li').length;
-  $('#ec_list li:eq('+ec_li_idx+')').css('opacity', 1);
-  $('#ec_list li').on('click', function () {
-    $('#ec_list li:eq('+ec_li_idx+')').css('opacity', 0.4);
-    ec_li_idx = $(this).index();
-    $('#ec_list li:eq('+ec_li_idx+')').css('opacity', 1);
-    var rep_img = $('img', this).attr('src');
-    $('#ec_main img').attr('src', rep_img);
-  });
-  setInterval(function () {
-    $('#ec_list li:eq('+ec_li_idx+')').css('opacity', 0.4);
+  var ec_li_max = $('#ec_main li').length;
+
+  $('#ec_main li:eq(0)').fadeIn('slow');
+    
+  setInterval(function(){
     if (ec_li_idx+1 < ec_li_max) {
       ec_li_idx++;
     } else {
       ec_li_idx = 0;
     }
-    $('#ec_list li:eq('+ec_li_idx+')').css('opacity', 1);
-    var rep_img = $('#ec_list li:eq('+ec_li_idx+') img').attr('src');
-    $('#ec_main img').attr('src', rep_img);
-  }, 8000);
+    $('#ec_main li').fadeOut(1000);
+    setTimeout(function() {
+      $('#ec_main li:eq('+ec_li_idx+')').fadeIn(1500);
+    }, 1500)
+  }, 12000);
 });
 </script>

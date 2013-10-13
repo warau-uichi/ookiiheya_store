@@ -8,24 +8,16 @@
   margin-bottom: 3em;
 }
 #ec_main {
-  width: 590px;
+  width: 645px;
   height: 390px;
   overflow: hidden;
   float: left;
 }
+#ec_main li {
+  display: none;
+}
 #ec_main img {
-  max-width: 590px; 
-}
-#ec_list {
-  float: left;
-  padding: 0 5px 5px;
-}
-#ec_list li {
-  opacity: 0.4;
-}
-#ec_list img {
-  width: 45px;
-  cursor: pointer;
+  width: 645px; 
 }
 .main strong {
   font-size: 18px;

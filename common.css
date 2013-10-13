@@ -48,6 +48,7 @@ li {
 .header {
  width:100%;
  position: relative;
+ margin-top: 15px;
  margin-bottom: 25px;
 }
 
