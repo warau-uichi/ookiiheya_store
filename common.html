@@ -57,7 +57,7 @@
     <!-- 商品カテゴリー-->
     <!-- ※カテゴリー画像が登録されている場合は画像のみ表示します -->
     <p><strong>products</strong></p>
-                <ul id="categories">
+    <ul id="categories">
       <{section name=num loop=$category}>
         <{if $category[num].img_url != ""}>
         <li><a href="<{$category[num].link_url}>"><img src="<{$category[num].img_url}>" /></a></li>
@@ -65,7 +65,14 @@
         <li><a href="<{$category[num].link_url}>"><{$category[num].name}></a></li>
         <{/if}>
       <{/section}>
-                </ul>
+    </ul>
+<{if $subcategory_num != 0}>
+<ul id="sub_categories">
+<{ section name=num loop=$sub_category }>
+<li><a href="<{$sub_category[num].link_url}>"><{$sub_category[num].name}></a></li>
+<{ /section }>
+</ul>
+<{/if}>
     <!-- 商品グループ -->
     <{section name=num loop=$group}>
     <{if $smarty.section.num.first }><div id="group-list"><{/if}>

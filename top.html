@@ -1,94 +1,96 @@
 <!--お知らせ-->
 <{if $info != ""}>
 <div id="eyecatch">
-  <{$info}>
+	<{$info}>
 </div>
 <{/if}>
 <!--//お知らせ-->
 
 
 <!--おすすめ商品が登録されている場合に表示されます-->
-<{if $recommend_num != 0}>
-  <p><strong>recommend items</strong></p>
+<!--show all items-->
+<{** if $recommend_num != 0 **}>
+	<p><strong>all items</strong></p>
         <ul id="recommend_items">
-  <{section name=num loop=$recommend}>
-    <li <{if $smarty.section.num.iteration % 4 == 0}>style="margin-right:0;"<{/if}>>
-      <!--↓商品画像を表示-->
-      <{if $recommend[num].img_url != ""}>
-        <a href="<{$recommend[num].link_url}>"><img src="<{$recommend[num].large_img_url}>" /></a><br />
-      <{else}>
-        <a href="<{$recommend[num].link_url}>"><img src="http://img.shop-pro.jp/tmpl_img/21/now100.gif" /></a><br />
-      <{/if}>
 <{**
-      <!--↓商品名・価格を表示-->
-      <a href="<{$recommend[num].link_url}>"><{$recommend[num].name}></a>
-      <br />
-      <{if $members_login_flg == true && $recommend[num].discount_flg == true}>
-        <!-- 通常販売価格 -->
-        <s><{$recommend[num].regular_price}></s><br />
-      <{/if}>
-        <!-- 販売価格 -->
-        <{$recommend[num].price}><br />
-      <{if $members_login_flg == true && $recommend[num].discount_flg == true}>
-        <!-- 割引率 -->
-        <{$recommend[num].discount_rate}>OFF!!
-      <{/if}>
+	<{section name=num loop=$recommend}>
+		<li <{if $smarty.section.num.iteration % 4 == 0}>style="margin-right:0;"<{/if}>>
+			<!--↓商品画像を表示-->
+			<{if $recommend[num].img_url != ""}>
+				<a href="<{$recommend[num].link_url}>"><img src="<{$recommend[num].large_img_url}>" /></a><br />
+			<{else}>
+				<a href="<{$recommend[num].link_url}>"><img src="http://img.shop-pro.jp/tmpl_img/21/now100.gif" /></a><br />
+			<{/if}>
+			<!--↓商品名・価格を表示-->
+			<a href="<{$recommend[num].link_url}>"><{$recommend[num].name}></a>
+			<br />
+			<{if $members_login_flg == true && $recommend[num].discount_flg == true}>
+				<!-- 通常販売価格 -->
+				<s><{$recommend[num].regular_price}></s><br />
+			<{/if}>
+				<!-- 販売価格 -->
+				<{$recommend[num].price}><br />
+			<{if $members_login_flg == true && $recommend[num].discount_flg == true}>
+				<!-- 割引率 -->
+				<{$recommend[num].discount_rate}>OFF!!
+			<{/if}>
+			<{if $recommend[num].soldout_flg == true}>SOLD OUT<{/if}>
+		</li>
+	<{/section}>
 **}>
-      <{if $recommend[num].soldout_flg == true}>SOLD OUT<{/if}>
-    </li>
-  <{/section}>
-        </ul> 
-<{/if}>
+        </ul>	
+<{** /if **}>
+<!--//show all items-->
 <!--//おすすめ商品-->
 
 
 <{**
 <!--売れ筋商品が登録されている場合に表示されます-->
 <{if $seller_num != 0}>
-  <strong>｜売れ筋商品</strong>
-  <br />
-  <{section name=num loop=$seller}>
-    <div style="float:left;">
-      <!--↓商品画像を表示-->
-      <{if $seller[num].img_url != ""}>
-        <a href="<{$seller[num].link_url}>"><img src="<{$seller[num].img_url}>" /></a><br />
-      <{else}>
-        <a href="<{$seller[num].link_url}>"><img src="http://img.shop-pro.jp/tmpl_img/21/now100.gif" /></a><br />
-      <{/if}>
-      
-      <!--↓商品名・価格を表示-->
-      <a href="<{$seller[num].link_url}>"><{$seller[num].name}></a>
-      <br />
-      <{if $members_login_flg == true && $seller[num].discount_flg == true}>
-        <!-- 通常販売価格 -->
-        <s><{$seller[num].regular_price}></s><br />
-      <{/if}>
-        <!-- 販売価格 -->
-        <{$seller[num].price}><br />
-      <{if $members_login_flg == true && $seller[num].discount_flg == true}>
-        <!-- 割引率 -->
-        <{$seller[num].discount_rate}>OFF!!
-      <{/if}>
-      <{if $seller[num].soldout_flg == true}>SOLD OUT<{/if}>
-    </div>
-    
-    <!-- 3個で改行(最後は含まない)  ※4個で改行にする場合は " % 3 "　を " % 4 " に変更してください-->
-    <{if $smarty.section.num.iteration % 3 == 0 and $smarty.section.num.last == false}>
-      <br style="clear:both;" />
-    <{/if}>
-    
-  <{/section}>
-  <br class="clear" />
-  <br />
-  <br />
+	<strong>｜売れ筋商品</strong>
+	<br />
+	<{section name=num loop=$seller}>
+		<div style="float:left;">
+			<!--↓商品画像を表示-->
+			<{if $seller[num].img_url != ""}>
+				<a href="<{$seller[num].link_url}>"><img src="<{$seller[num].img_url}>" /></a><br />
+			<{else}>
+				<a href="<{$seller[num].link_url}>"><img src="http://img.shop-pro.jp/tmpl_img/21/now100.gif" /></a><br />
+			<{/if}>
+			
+			<!--↓商品名・価格を表示-->
+			<a href="<{$seller[num].link_url}>"><{$seller[num].name}></a>
+			<br />
+			<{if $members_login_flg == true && $seller[num].discount_flg == true}>
+				<!-- 通常販売価格 -->
+				<s><{$seller[num].regular_price}></s><br />
+			<{/if}>
+				<!-- 販売価格 -->
+				<{$seller[num].price}><br />
+			<{if $members_login_flg == true && $seller[num].discount_flg == true}>
+				<!-- 割引率 -->
+				<{$seller[num].discount_rate}>OFF!!
+			<{/if}>
+			<{if $seller[num].soldout_flg == true}>SOLD OUT<{/if}>
+		</div>
+		
+		<!-- 3個で改行(最後は含まない)  ※4個で改行にする場合は " % 3 "　を " % 4 " に変更してください-->
+		<{if $smarty.section.num.iteration % 3 == 0 and $smarty.section.num.last == false}>
+			<br style="clear:both;" />
+		<{/if}>
+		
+	<{/section}>
+	<br class="clear" />
+	<br />
+	<br />
 <{/if}>
 <!--//売れ筋商品-->
 
 
 <!--フリースペース-->
 <{if $free_space!=""}>
-  <strong>｜フリースペース</strong><br />
-  <{$free_space}>
+	<strong>｜フリースペース</strong><br />
+	<{$free_space}>
 <{/if}>
 <!--//フリースペース-->
 **}>
@@ -111,5 +113,18 @@ $(function () {
       $('#ec_main li:eq('+ec_li_idx+')').fadeIn(1500);
     }, 1500)
   }, 12000);
+
+  var url = 'http://ookiiheya.shop-pro.jp/';
+  var params = 'mode=cate&cbid=1638055&csid=0&sort=n';
+  $.ajax({
+    url: url,
+    data: params,
+    dataType: 'html'
+  }).done(function(data) {
+    var prod_list = $(data).find('#product_list').find('ul');
+    $('#recommend_items').append(prod_list[0].innerHTML);
+    var sub_cats = $(data).find('#sub_categories');
+    $('#categories').append(sub_cats[0].innerHTML);
+  });
 });
 </script>
