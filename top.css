@@ -1,5 +1,5 @@
 #eyecatch {
-  width: 645px;
+  width: 695px;
   text-align: center;
   display: table;
   vertical-align: middle;
@@ -8,7 +8,7 @@
   margin-bottom: 3em;
 }
 #ec_main {
-  width: 645px;
+  width: 695px;
   height: 390px;
   overflow: hidden;
   float: left;
@@ -17,12 +17,12 @@
   display: none;
 }
 #ec_main img {
-  width: 645px; 
+  width: 695px; 
 }
 .main strong {
   font-size: 18px;
   display: block;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #ccc;
   font-weight: bold;
   margin-bottom: 1em;
   padding-bottom: 0.5em;
@@ -30,8 +30,8 @@
 }
 #recommend_items li {
   float: left;
-  margin-right: 1em;
-  margin-bottom: 1em;
+  margin-right: 30px;
+  margin-bottom: 30px;
   display: block;
 }
 #recommend_items img {

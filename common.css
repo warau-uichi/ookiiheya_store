@@ -1,27 +1,27 @@
 /* ************************************************ 
- *  共通設定
+ *	共通設定
  * ************************************************ */
 * {
-  margin: 0px;
-  padding: 0px;
+	margin: 0px;
+	padding: 0px;
 }
 
 body {
-  color: #000000;
-  font-size: 12px;
-  font-family: 'Muli',"Verdana", "ヒラギノ角ゴ Pro W3", "ＭＳ ゴシック", "Osaka‐等幅";
-  line-height: 1.6em;
-  background-color: #ffffff;
-  text-align:center;
+	color: #000000;
+	font-size: 12px;
+	font-family: 'Muli',"Verdana", "ヒラギノ角ゴ Pro W3", "ＭＳ ゴシック", "Osaka‐等幅";
+	line-height: 1.6em;
+	background-color: #ffffff;
+	text-align:center;
 }
 
 br.clear {
-  clear: both;
-  font: 0pt/0pt sans-serif;
+	clear: both;
+	font: 0pt/0pt sans-serif;
 }
 
 img {
-  border: 0px;
+	border: 0px;
 }
 
 li {
@@ -29,7 +29,7 @@ li {
 }
 
 /* ------------------------------------- 
- *  ページレイアウト
+ *	ページレイアウト
  * ------------------------------------- 
  *※ページ全体の幅は800pxとなっています。
     幅を広げる場合は、.sideと.mainのwidth
@@ -39,9 +39,9 @@ li {
 
 /*ページ全体の幅、レイアウトをセンタリング*/
 #container {
-  margin:0px auto;
-  width:900px;
-  text-align:left;
+	margin:0px auto;
+	width:900px;
+	text-align:left;
 }
 
 /*ヘッダー（ページタイトル、グローバルメニュー）*/
@@ -82,14 +82,14 @@ li {
 
 /*　画面左側メニューの幅　*/
 .side {
-  float: left;
-  width:200px;
+	float: left;
+	width:150px;
         margin-right: 50px;
 }
 
 .side strong {
   font-size: 18px;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #CCC;
   display: block;
   margin-bottom: 1em;
   padding-bottom: 0.5em;
@@ -124,53 +124,53 @@ li {
 }
 
 #relative_link img {
-  width: 150px;
+  width: 100px;
 }
 
 .subtotal {
-  padding:5px 0;
+	padding:5px 0;
 }
 .stotal {
-  text-align:right;
+	text-align:right;
 }
 .total {
-  padding:5px 0;
-  border-top:1px solid #C3C3C3;
-  text-align:right;
+	padding:5px 0;
+	border-top:1px solid #C3C3C3;
+	text-align:right;
 }
 
 .postage {
-  border-top:1px dotted #C3C3C3;
-  border-bottom:1px dotted #C3C3C3;
-  list-style-type:none;
-  margin-bottom:5px;
+	border-top:1px dotted #C3C3C3;
+	border-bottom:1px dotted #C3C3C3;
+	list-style-type:none;
+	margin-bottom:5px;
 }
 
 .postage li {
-  margin:5px 0;
-  color:red;
-  text-align:left;
+	margin:5px 0;
+	color:red;
+	text-align:left;
 }
 
 .viewcart {
-  padding:5px 0;
-  text-align:center;
+	padding:5px 0;
+	text-align:center;
 }
 
 /*　画面右側の幅　*/
 .main {
-  float: left;
-  width: 645px;
+	float: left;
+	width: 695px;
 }
 
 /* 特定商取引法に基づく表記（返品など）ボタン */
 p#sk_link_other {
-  text-align:left;
-  margin-top:10px;
+	text-align:left;
+	margin-top:10px;
 }
 
 p#sk_link_other a {
-  font-size:12px;
+	font-size:12px;
 }
 
 /*　フッター（コピーライト）　*/
@@ -180,12 +180,26 @@ p#sk_link_other a {
  text-align: right;
  margin-top: 50px;
  float: left;
+ color: #999;
+}
+
+.footer ul {
+  margin-bottom: 0.5em;
+}
+
+.footer a {
+  text-decoration: none;
+  color: #000;
+}
+
+.footer a:hover {
+  color: #999;
 }
 
 #group-list {
-  border-top:#838383 dotted 1px;
-  padding:5px 0px 0px;
-  margin:10px 20px 0px 0px;
+	border-top:#838383 dotted 1px;
+	padding:5px 0px 0px;
+	margin:10px 20px 0px 0px;
 }
 
 /* -------------------------------------
